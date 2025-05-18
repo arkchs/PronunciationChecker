@@ -19,22 +19,3 @@ def getASRModel(language: str,use_whisper:bool=True):
         return NeuralASR(model, decoder)
     else:
         raise ValueError('Language not implemented')
-
-
-def getTTSModel(language: str) -> nn.Module:
-    if language == 'en':
-        speaker = 'lj_16khz'  
-        model = torch.hub.load(repo_or_dir='snakers4/silero-models',
-                               model='silero_tts',
-                               language=language,
-                               speaker=speaker)
-    else:
-        raise ValueError('Language not implemented')
-
-    return model
-
-
-def getTranslationModel(language: str) -> nn.Module:
-    raise ValueError('No translation models implemented')
-
-    return model, tokenizer

@@ -1,33 +1,4 @@
 import numpy as np
-
-
-
-
-
-def edit_distance_python2(a, b):
-    
-    if len(a) < len(b):
-        return edit_distance_python(b, a)
-    if len(b) == 0:  
-        return len(a)
-    
-    distances = []
-    distances.append([i for i in range(len(b)+1)])
-    distances.append([0 for _ in range(len(b)+1)])
-    
-    costs = [0 for _ in range(3)]
-    for i, a_token in enumerate(a, start=1):
-        distances[1][0] += 1  
-        for j, b_token in enumerate(b, start=1):
-            costs[0] = distances[1][j-1] + 1
-            costs[1] = distances[0][j] + 1
-            costs[2] = distances[0][j-1] + (0 if a_token == b_token else 1)
-            distances[1][j] = min(costs)
-        
-        distances[0][:] = distances[1][:]
-    return distances[1][len(b)]
-
-
 def edit_distance_python(seq1, seq2):
     size_x = len(seq1) + 1
     size_y = len(seq2) + 1

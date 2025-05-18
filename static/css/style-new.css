@@ -13,7 +13,10 @@ p {
 }
 
 h1 {
-	margin-left: 2%;
+	text-align: center;
+	width: 100%;
+	margin: 0;
+	padding: 20px 0;
 }
 
 a.disabled {
@@ -138,18 +141,6 @@ a.disabled {
 	box-shadow: 0 0 20px 8px #d0d0d0;
 }
 
-.container-small {
-	position: fixed;
-	left: 68%;
-	top: 79%;
-	transform: translate(-0%, -0%);
-	height: 0%;
-	width: 0%;
-	background: #ffff;
-	overflow: hidden;
-	border-radius: 20px;
-	box-shadow: 0 0 20px 8px #d0d0d0;
-}
 
 /* ############# Icon Button ##############  */
 

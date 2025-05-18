@@ -18,7 +18,7 @@ def get_word_distance_matrix(words_estimated: list, words_real: list) -> np.ndar
         (number_of_estimated_words+offset_blank, number_of_real_words))
     for idx_estimated in range(number_of_estimated_words):
         for idx_real in range(number_of_real_words):
-            word_distance_matrix[idx_estimated, idx_real] = WordMetrics.edit_distance_python(
+            word_distance_matrix[idx_estimated, idx_real] = wordMetrics.edit_distance_python(
                 words_estimated[idx_estimated], words_real[idx_real])
 
     if offset_blank == 1:
@@ -157,17 +157,17 @@ def get_best_mapped_words(words_estimated: list, words_real: list,use_dtw:bool =
 
 
 
-def get_best_mapped_words_dtw(words_estimated: list, words_real: list) -> list:
+# def get_best_mapped_words_dtw(words_estimated: list, words_real: list) -> list:
 
-    from dtwalign import dtw_from_distance_matrix
-    word_distance_matrix = get_word_distance_matrix(
-        words_estimated, words_real)
-    mapped_indices = dtw_from_distance_matrix(
-        word_distance_matrix).path[:-1, 0]
+#     from dtwalign import dtw_from_distance_matrix
+#     word_distance_matrix = get_word_distance_matrix(
+#         words_estimated, words_real)
+#     mapped_indices = dtw_from_distance_matrix(
+#         word_distance_matrix).path[:-1, 0]
 
-    mapped_words, mapped_words_indices = get_resulting_string(
-        mapped_indices, words_estimated, words_real)
-    return mapped_words, mapped_words_indices
+#     mapped_words, mapped_words_indices = get_resulting_string(
+#         mapped_indices, words_estimated, words_real)
+#     return mapped_words, mapped_words_indices
 
 
 def getWhichLettersWereTranscribedCorrectly(real_word, transcribed_word):
@@ -182,15 +182,15 @@ def getWhichLettersWereTranscribedCorrectly(real_word, transcribed_word):
     return is_leter_correct
 
 
-def parseLetterErrorsToHTML(word_real, is_leter_correct):
-    word_colored = ''
-    correct_color_start = '*'
-    correct_color_end = '*'
-    wrong_color_start = '-'
-    wrong_color_end = '-'
-    for idx, letter in enumerate(word_real):
-        if is_leter_correct[idx] == 1:
-            word_colored += correct_color_start + letter+correct_color_end
-        else:
-            word_colored += wrong_color_start + letter+wrong_color_end
-    return word_colored
+# def parseLetterErrorsToHTML(word_real, is_leter_correct):
+#     word_colored = ''
+#     correct_color_start = '*'
+#     correct_color_end = '*'
+#     wrong_color_start = '-'
+#     wrong_color_end = '-'
+#     for idx, letter in enumerate(word_real):
+#         if is_leter_correct[idx] == 1:
+#             word_colored += correct_color_start + letter+correct_color_end
+#         else:
+#             word_colored += wrong_color_start + letter+wrong_color_end
+#     return word_colored

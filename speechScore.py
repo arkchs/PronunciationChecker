@@ -40,7 +40,7 @@ def lambda_handler(event, context):
         }
 
     
-    with tempfile.NamedTemporaryFile(suffix=".ogg", delete=True) as tmp:
+    with tempfile.NamedTemporaryFile(suffix=".ogg", delete=False) as tmp:
         tmp.write(file_bytes)
         tmp.flush()
         tmp_name = tmp.name
@@ -50,6 +50,9 @@ def lambda_handler(event, context):
 
     result = trainer_SST_lambda[language].processAudioForGivenText(
         signal, real_text)
+    
+    import os
+    os.remove(tmp_name)
 
     
     

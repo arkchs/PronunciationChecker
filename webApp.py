@@ -3,7 +3,6 @@ import webbrowser
 import os
 from flask_cors import CORS
 import json
-import TTS
 import speechScore
 import getSample
 
@@ -19,16 +18,13 @@ def main():
     return render_template('main.html')
 
 
-@app.route(rootPath+'/getAudioFromText', methods=['POST'])
-def getAudioFromText():
-    event = {'body': json.dumps(request.get_json(force=True))}
-    return TTS.lambda_handler(event, [])
+
 
 
 @app.route(rootPath+'/getSample', methods=['POST'])
 def getNext():
     event = {'body':  json.dumps(request.get_json(force=True))}
-    return getSample.lambda_handler(event, [])
+    return getSample.handler(event, [])
 
 
 @app.route(rootPath+'/GetAccuracyFromRecordedAudio', methods=['POST'])

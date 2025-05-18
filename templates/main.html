@@ -30,9 +30,9 @@
         <div style="display:flex; flex-direction: row;">
 
 
-            <div style="display:inline-block; margin-left: 1.5em;">
+            <!-- <div style="display:inline-block; margin-left: 1.5em;">
                 <i class="material-icons icon-text-home" style="text-align: right;" onclick="history.go(0)">home</i>
-            </div>
+            </div> -->
 
             <h1 id='main_title'> Pronunciation Checker
             </h1>
@@ -43,18 +43,8 @@
             <div class="horizontal-flexbox" style="display:flex; flex-direction: row;">
 
 
-                <p class="accuracy-text" style="font-size:1em; text-align: left; padding-top: 3px; padding-left: 5px;">
-                    Language: </p>
-                <!--dropbtn accuracy-text-->
-                <div class="dropdown">                    <button id="languageBox" class="dropbtn accuracy-text"
-                        style="font-size:1em; text-align: left; padding-top: 3px; padding-left: 0px;">English</button>
-                    <div class="dropdown-content">
-                        <a href="javascript:changeLanguage('de',true)" class="accuracy-text"
-                            style="padding-top: 3px; ">German</a>
-                        <a href="javascript:changeLanguage('en',true)" class="accuracy-text ;"
-                            style="padding-top: 3px; ">English</a>
-                    </div>
-                </div>
+                <p class="accuracy-text" style="font-size:1em; text-align: center; padding-top: 3px; padding-left: 5px;">
+                    Language: English</p>
 
                 <p id="section_accuracy" class="accuracy-text"
                     style="text-align: left; color: black; font-size: larger;">
@@ -102,48 +92,38 @@
                 <p id="recorded_ipa_script" class="text-primary ipa-text">On the left bottom you can choose the
                     difficult. On the upper left you can choose the language.
                 </p>
-                <p id="translated_script" class="text-muted medium-text ipa-text"> 
+                <p id="translated_script" class="text-muted medium-text ipa-text"> The corresponding IPA reading of each
+                    sentence will also be displayed. If you never heard from IPA, you can check out this
+                    <a href="https://www.youtube.com/watch?v=mzrLZi6fipA&list=RDCMUCQAUWk_yGz7bk1181DrijNw&start_radio=1&rv=mzrLZi6fipA&t=22&ab_channel=FluentForever"
+                        target=”_blank”>playlist</a>. Try to get at least 690 points a day. Don't be shy! You can do it
+                    :)
                 </p>
 
             </div>
+
             <div id="nextButtonDiv" style="position: absolute; left: 90%; top:0%; height: 100%;" class="flex-container">
                 <button id="buttonNext" class="expanded button-next" onclick="javascript:getNextSample()">
                     <span></span></a>
             </div>
         </div>
-
-        
-
-
-
-
         <div class="container-small flex expand"
             style="align-items: center; text-align: center; vertical-align:middle; ">
             <p id="single_word_ipa_pair" class="expand ipa-text-small"
                 style="text-align: center; vertical-align: middle;">
+                <!-- Reference | Spoken -->
             </p>
         </div>
-
-
         <div id="btn-record" class="expanded mic-button-div">
             <a id="recordAudio" href="javascript:updateRecordingState()" class="round-button-mic disabled"
                 style="color:white; text-align:center; "><i id="recordIcon" class="material-icons icon-text-mic">mic</i>
             </a>
         </div>
-
-
         <div id="radio-difficulty" class="radio" style="position: fixed; top: 95%; left: 2%;">
             <input label="Random" type="radio" id="lengthCat1" name='length' onclick="javascript:getNextSample()">
             <input label="Easy" type="radio" id="lengthCat2" name='length' checked onclick="javascript:getNextSample()">
             <input label="Medium" type="radio" id="lengthCat3" name='length' onclick="javascript:getNextSample()">
             <input label="Hard" type="radio" id="lengthCat4" name='length' onclick="javascript:getNextSample()">
         </div>
-
     </div>
-
-
 </body>
-
-
-
 </html>

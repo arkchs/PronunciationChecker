@@ -1,9 +1,7 @@
 import pandas as pd
 import json
 import RuleBasedModels
-import epitran
 import random
-import pickle
 
 
 class TextDataset():
@@ -34,7 +32,7 @@ lambda_ipa_converter[language] = RuleBasedModels.get_phonem_converter(language)
 lambda_translate_new_sample = False
 
 
-def lambda_handler(event, context):
+def handler(event, context):
 
     body = json.loads(event['body'])
 

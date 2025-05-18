@@ -1,5 +1,3 @@
-
-
 // Audio context initialization
 let mediaRecorder, audioChunks, audioBlob, stream, audioRecorded;
 const ctx = new AudioContext();
@@ -7,7 +5,7 @@ let currentAudioForPlaying;
 let lettersOfWordAreCorrect = [];
 
 // UI-related variables
-const page_title = "AI Pronunciation Trainer";
+const page_title = "Pronunciation Checker";
 const accuracy_colors = ["green", "orange", "red"];
 let badScoreThreshold = 30;
 let mediumScoreThreshold = 70;
@@ -16,62 +14,43 @@ let currentScore = 0.;
 let sample_difficult = 0;
 let scoreMultiplier = 1;
 let playAnswerSounds = true;
-let isNativeSelectedForPlayback = true;
 let isRecording = false;
 let serverIsInitialized = false;
 let serverWorking = true;
-let languageFound = true;
 let currentSoundRecorded = false;
-let currentText, currentIpa, real_transcripts_ipa, matched_transcripts_ipa;
+let currentText, currentIpa;
 let wordCategories;
 let startTime, endTime;
 
 // API related variables 
 let AILanguage = "en"; // English only
-
-
-let STScoreAPIKey = 'rll5QsTiv83nti99BW6uCmvs9BDVxSB39SVFceYb'; // Public Key. If, for some reason, you would like a private one, send-me a message and we can discuss some possibilities
-let apiMainPathSample = '';// 'http://127.0.0.1:3001';// 'https://a3hj0l2j2m.execute-api.eu-central-1.amazonaws.com/Prod';
-let apiMainPathSTS = '';// 'https://wrg7ayuv7i.execute-api.eu-central-1.amazonaws.com/Prod';
-
+let STScoreAPIKey = 'rll5QsTiv83nti99BW6uCmvs9BDVxSB39SVFceYb';
+let apiMainPathSample = 'http://localhost:3000';
+let apiMainPathSTS = 'http://localhost:3000';
 
 // Variables to playback accuracy sounds
-let soundsPath = '../static';//'https://stscore-sounds-bucket.s3.eu-central-1.amazonaws.com';
+let soundsPath = '../static';
 let soundFileGood = null;
 let soundFileOkay = null;
 let soundFileBad = null;
 
-// Speech generation
-var synth = window.speechSynthesis;
-let voice_idx = 0;
-let voice_synth = null;
-
 //############################ UI general control functions ###################
 const unblockUI = () => {
     document.getElementById("recordAudio").classList.remove('disabled');
-    document.getElementById("playSampleAudio").classList.remove('disabled');
     document.getElementById("buttonNext").onclick = () => getNextSample();
     document.getElementById("nextButtonDiv").classList.remove('disabled');
     document.getElementById("original_script").classList.remove('disabled');
-    document.getElementById("buttonNext").style["background-color"] = '#58636d';
 
     if (currentSoundRecorded)
         document.getElementById("playRecordedAudio").classList.remove('disabled');
-
-
 };
 
 const blockUI = () => {
-
     document.getElementById("recordAudio").classList.add('disabled');
-    document.getElementById("playSampleAudio").classList.add('disabled');
     document.getElementById("buttonNext").onclick = null;
     document.getElementById("original_script").classList.add('disabled');
     document.getElementById("playRecordedAudio").classList.add('disabled');
-
     document.getElementById("buttonNext").style["background-color"] = '#adadad';
-
-
 };
 
 const UIError = () => {
@@ -247,44 +226,7 @@ const recordSample = async () => {
 }
 
 const changeLanguage = (language, generateNewSample = false) => {
-    voices = synth.getVoices();
     AILanguage = language;
-    languageFound = false;
-    let languageIdentifier, languageName;
-    switch (language) {
-        case 'de':
-
-            document.getElementById("languageBox").innerHTML = "German";
-            languageIdentifier = 'de';
-            languageName = 'Anna';
-            break;
-
-        case 'en':
-
-            document.getElementById("languageBox").innerHTML = "English";
-            languageIdentifier = 'en';
-            languageName = 'Daniel';
-            break;
-    };
-
-    for (idx = 0; idx < voices.length; idx++) {
-        if (voices[idx].lang.slice(0, 2) == languageIdentifier && voices[idx].name == languageName) {
-            voice_synth = voices[idx];
-            languageFound = true;
-            break;
-        }
-
-    }
-    // If specific voice not found, search anything with the same language 
-    if (!languageFound) {
-        for (idx = 0; idx < voices.length; idx++) {
-            if (voices[idx].lang.slice(0, 2) == languageIdentifier) {
-                voice_synth = voices[idx];
-                languageFound = true;
-                break;
-            }
-        }
-    }
     if (generateNewSample)
         getNextSample();
 }
