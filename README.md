@@ -16,10 +16,12 @@ The primary challenges encountered during this project were related to **model a
 
 **Python** and **PyTorch** were chosen for their dominance in the deep learning field and their user-friendly, high-level programming experience, which facilitates ease of development. The project employs a **microservice architecture** where core functionalities like authentication and service routes are built with **Node.js** due to its simplicity and ease of development. The machine learning inference is handled on a separate server using **FastAPI**. This separation of business logic from the machine learning inference ensures a modular, scalable, and testable environment.
 
-An overview of the Wav2Vec2.0 architecture:
-<img width="800" height="400" alt="Architecture-of-Wav2Vec2" src="https://github.com/user-attachments/assets/1a011940-abfa-4028-8afb-18e8efff7d48" />
-An overview of the Branchformer architecture:
-<img width="807" height="593" alt="image" src="https://github.com/user-attachments/assets/f3bd3609-4e80-4395-8aef-978791dced34" />
+| ![arch1.png](https://github.com/user-attachments/assets/1a011940-abfa-4028-8afb-18e8efff7d48) | 
+|:---:| 
+| *Wav2Vec2.0 architecture* |
 
+| ![arch2.png](https://github.com/user-attachments/assets/f3bd3609-4e80-4395-8aef-978791dced34) | 
+|:---:| 
+| *Branchformer architecture* |
 
 For further knowledge on these architectures, you can read this [ASAPP E-Branchformer article](https://www.asapp.com/blog/asapp-tops-the-asr-leaderboard-with-e-branchformer).
