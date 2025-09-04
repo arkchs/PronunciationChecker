@@ -1,16 +1,33 @@
-# pronunciation
+# **Pronunciation Checker**
 
-A new Flutter project.
+### **Why This Project Was Created?**
 
-## Getting Started
+This project was developed to assist individuals with pronunciation disabilities, such as those with **dysarthria**, which involves muscle weakness affecting speech clarity, and **apraxia of speech**, a neurological condition that impacts speech planning and sequencing. It also addresses articulation and phonological disorders, which are often linked to physical issues like a cleft palate, hearing impairments, or developmental factors.
 
-This project is a starting point for a Flutter application.
+-----
 
-A few resources to get you started if this is your first Flutter project:
+### **Difficulties Faced**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+The primary challenges encountered during this project were related to **model architecture**. We used **wav2vec2.0** to extract global speech representations and then a **Branchformer model** to convert these into a specialized local and global representation. The Branchformer utilizes a parallel **cg-MLP** and **MHSA** to create a merged, contextualized embedding that represents the speech waveform at a granular level. Additionally, the implementation and learning curve of a **microservice architecture** presented some difficulties.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-----
+
+### **The Technology Stack**
+
+**Python** and **PyTorch** were chosen for their dominance in the deep learning field and their user-friendly, high-level programming experience, which facilitates ease of development. The project employs a **microservice architecture** where core functionalities like authentication and service routes are built with **Node.js** due to its simplicity and ease of development. The machine learning inference is handled on a separate server using **FastAPI**. This separation of business logic from the machine learning inference ensures a modular, scalable, and testable environment.
+
+| <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/00e31aff-f151-4190-ac9a-5b01c9131ee8" /> | 
+|:---:| 
+| *Web based application in Flutter* |
+
+
+
+| ![arch1.png](https://github.com/user-attachments/assets/1a011940-abfa-4028-8afb-18e8efff7d48) | 
+|:---:| 
+| *Wav2Vec2.0 architecture* |
+
+| ![arch2.png](https://github.com/user-attachments/assets/f3bd3609-4e80-4395-8aef-978791dced34) | 
+|:---:| 
+| *Branchformer architecture* |
+
+For further knowledge on these architectures, you can read this [ASAPP E-Branchformer article](https://www.asapp.com/blog/asapp-tops-the-asr-leaderboard-with-e-branchformer).
