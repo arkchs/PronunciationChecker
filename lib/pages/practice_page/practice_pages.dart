@@ -17,14 +17,14 @@ class PracticePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            height: double.infinity, // Take full height
-            width: double.infinity, // Take full width
-            child: Image.asset(
-              'images/background.png', // Replace with your image path
-              fit: BoxFit.cover, // Cover the entire area
-            ),
-          ),
+          // Container(
+          //   height: double.infinity, // Take full height
+          //   width: double.infinity, // Take full width
+          //   child: Image.asset(
+          //     'images/background.png', // Replace with your image path
+          //     fit: BoxFit.cover, // Cover the entire area
+          //   ),
+          // ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

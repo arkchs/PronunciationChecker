@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pronunciation/pages/home_page/home_page.dart';
 import 'package:pronunciation/pages/practice_page/practice_pages.dart';
 
 void main() {
@@ -33,7 +34,7 @@ class SpeakRightApp extends StatelessWidget {
           ),
         ),
       ),
-      home: PracticePage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
