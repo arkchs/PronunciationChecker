@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--gray-900);
+  color: #fff;
+  .logo {
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+  }
+  .nav {
+    display: flex;
+    gap: 2rem;
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.8;
+      &.active {
+        border-bottom: 2px solid var(--bright-blue);
+        opacity: 1;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .profile img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--bright-blue);
+  }
+}
