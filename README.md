@@ -10,11 +10,26 @@ This project was developed to assist individuals with pronunciation disabilities
 
 The primary challenges encountered during this project were related to **model architecture**. We used **wav2vec2.0** to extract global speech representations and then a **Branchformer model** to convert these into a specialized local and global representation. The Branchformer utilizes a parallel **cg-MLP** and **MHSA** to create a merged, contextualized embedding that represents the speech waveform at a granular level. Additionally, the implementation and learning curve of a **microservice architecture** presented some difficulties.
 
------
 
 ### **The Technology Stack**
 
 **Python** and **PyTorch** were chosen for their dominance in the deep learning field and their user-friendly, high-level programming experience, which facilitates ease of development. The project employs a **microservice architecture** where core functionalities like authentication and service routes are built with **Node.js** due to its simplicity and ease of development. The machine learning inference is handled on a separate server using **FastAPI**. This separation of business logic from the machine learning inference ensures a modular, scalable, and testable environment.
+
+
+
+
+
+
+
+| <img width="622" height="425" alt="diagram-export-7-9-2025-11_23_55-am" src="https://github.com/user-attachments/assets/3818cb14-1684-428e-ae60-909ea785c8aa" /> | 
+|:---:| 
+| *Software Architecture* |
+
+
+| <img width="564" height="782" alt="diagram-export-7-9-2025-12_01_04-pm" src="https://github.com/user-attachments/assets/be8ea343-1950-4150-906f-1d3fd16a7c84" /> | 
+|:---:| 
+| *Flowchart* |
+
 
 | ![arch1.png](https://github.com/user-attachments/assets/1a011940-abfa-4028-8afb-18e8efff7d48) | 
 |:---:| 
