@@ -16,20 +16,13 @@ The primary challenges encountered during this project were related to **model a
 **Python** and **PyTorch** were chosen for their dominance in the deep learning field and their user-friendly, high-level programming experience, which facilitates ease of development. The project employs a **microservice architecture** where core functionalities like authentication and service routes are built with **Node.js** due to its simplicity and ease of development. The machine learning inference is handled on a separate server using **FastAPI**. This separation of business logic from the machine learning inference ensures a modular, scalable, and testable environment.
 
 
+| <img width="596" height="425" alt="HLD" src="https://github.com/user-attachments/assets/36af77e4-ba25-4e16-8eed-ba535ac78f6d" /> | 
+|:-------:|
+ | *Software Architecture* | 
 
-
-
-
-
-| <img width="622" height="425" alt="diagram-export-7-9-2025-11_23_55-am" src="https://github.com/user-attachments/assets/3818cb14-1684-428e-ae60-909ea785c8aa" /> | 
-|:---:| 
-| *Software Architecture* |
-
-
-| <img width="564" height="782" alt="diagram-export-7-9-2025-12_01_04-pm" src="https://github.com/user-attachments/assets/be8ea343-1950-4150-906f-1d3fd16a7c84" /> | 
-|:---:| 
+| <img width="741" height="548" alt="flowchart" src="https://github.com/user-attachments/assets/4e252183-f401-4c1d-abe6-49b2c0e94588" /> |
+|:-------:|
 | *Flowchart* |
-
 
 | ![arch1.png](https://github.com/user-attachments/assets/1a011940-abfa-4028-8afb-18e8efff7d48) | 
 |:---:| 
